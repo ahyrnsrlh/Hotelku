@@ -1,52 +1,18 @@
-APP_NAME=Laravel
-APP_ENV=local
-APP_KEY=base64:TpblrsfmswNErOox73CvJ7hC0yZz8tgAWaGFl3u5fTI=
-APP_DEBUG=true
-APP_URL=http://localhost
+root = true
 
-LOG_CHANNEL=stack
-LOG_LEVEL=debug
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=l8_hotelmanage
-DB_USERNAME=root
-DB_PASSWORD=
+[*.md]
+trim_trailing_whitespace = false
 
-BROADCAST_DRIVER=log
-CACHE_DRIVER=file
-FILESYSTEM_DRIVER=local
-QUEUE_CONNECTION=sync
-SESSION_DRIVER=file
-SESSION_LIFETIME=120
+[*.{yml,yaml}]
+indent_size = 2
 
-MEMCACHED_HOST=127.0.0.1
-
-REDIS_HOST=127.0.0.1
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-
-MAIL_MAILER=smtp
-MAIL_HOST=mailhog
-MAIL_PORT=1025
-MAIL_USERNAME=null
-MAIL_PASSWORD=null
-MAIL_ENCRYPTION=null
-MAIL_FROM_ADDRESS=null
-MAIL_FROM_NAME="${APP_NAME}"
-
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_DEFAULT_REGION=us-east-1
-AWS_BUCKET=
-AWS_USE_PATH_STYLE_ENDPOINT=false
-
-PUSHER_APP_ID=
-PUSHER_APP_KEY=
-PUSHER_APP_SECRET=
-PUSHER_APP_CLUSTER=mt1
-
-MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
-MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
-
+[docker-compose.yml]
+indent_size = 4
