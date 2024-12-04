@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 12, 2021 at 07:29 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Host: localhost:3306
+-- Generation Time: Dec 04, 2024 at 04:57 AM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` bigint UNSIGNED NOT NULL,
+  `username` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -47,10 +47,10 @@ INSERT INTO `admins` (`id`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `banners` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `banner_src` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alt_text` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `publish_status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `banner_src` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alt_text` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `publish_status` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -60,8 +60,7 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `banner_src`, `alt_text`, `publish_status`, `created_at`, `updated_at`) VALUES
-(2, 'public/imgs/TenxRtEgFN48VqXnqqlNFDccossnPYxZxBrcacnj.jpg', '1', '', '2021-11-12 12:51:28', '2021-11-12 12:56:01'),
-(3, 'public/imgs/J4tloCDjFtK3OuxyrCZ6ac7X5uCZcSZ6NgLMTZYs.jpg', '2', 'on', '2021-11-12 12:51:39', '2021-11-12 12:51:39');
+(4, 'public/imgs/h0NWXqVN8pdzeNSJhXYp2pvhex0NruaSu96An8SB.svg', '1', 'on', '2024-11-30 04:00:49', '2024-11-30 04:10:14');
 
 -- --------------------------------------------------------
 
@@ -70,14 +69,14 @@ INSERT INTO `banners` (`id`, `banner_src`, `alt_text`, `publish_status`, `create
 --
 
 CREATE TABLE `bookings` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `room_id` int(11) NOT NULL,
-  `checkin_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `checkout_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `total_adults` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `total_children` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ref` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `customer_id` int NOT NULL,
+  `room_id` int NOT NULL,
+  `checkin_date` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `checkout_date` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_adults` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_children` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ref` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -87,7 +86,7 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `customer_id`, `room_id`, `checkin_date`, `checkout_date`, `total_adults`, `total_children`, `ref`, `created_at`, `updated_at`) VALUES
-(1, 4, 1, '2021-10-29', '2021-10-30', '2', '0', 'admin', '2021-10-28 13:02:01', '2021-10-28 13:02:01');
+(2, 5, 2, '2024-11-30', '2024-12-03', '2', '0', 'admin', '2024-11-30 03:30:23', '2024-11-30 03:30:23');
 
 -- --------------------------------------------------------
 
@@ -96,13 +95,13 @@ INSERT INTO `bookings` (`id`, `customer_id`, `room_id`, `checkin_date`, `checkou
 --
 
 CREATE TABLE `customers` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `full_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mobile` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `full_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `photo` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -112,8 +111,9 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `full_name`, `email`, `password`, `mobile`, `address`, `photo`, `created_at`, `updated_at`) VALUES
-(1, 'John Doe', 'john@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '1234567890', NULL, NULL, '2021-09-01 13:48:32', '2021-09-01 13:48:32'),
-(4, 'Alex Lee', 'alex@gmail.com', 'd54b76b2bad9d9946011ebc62a1d272f4122c7b5', '789456123', 'test', NULL, '2021-09-28 13:43:42', '2021-09-28 13:43:42');
+(5, 'ahyar', 'ahyar@gmail.com', '6e4db8acdd56a92db66dfb8966ffa58513015fce', '085783554819', 'Bangi Sri Agung, RT 01/RW 07, Ds. Aji Kagungan, Kec. Abung Kunang, Kab. Lampung Utara, Lampung', NULL, '2024-11-29 21:47:42', '2024-11-29 21:47:42'),
+(6, 'budi', 'budi@gmail.com', '83161a62f22277c65a6cdb7ebc314f218c376c63', '085783554819', 'Bangi Sri Agung, RT 01/RW 07, Ds. Aji Kagungan, Kec. Abung Kunang, Kab. Lampung Utara, Lampung', NULL, '2024-11-29 23:50:12', '2024-11-29 23:50:12'),
+(7, 'gilang', 'gilang@gmail.com', 'e239aca6e941135937208eb840dc38108d86be3b', '12345677', 'bandar lampung', NULL, '2024-12-01 00:39:56', '2024-12-01 00:39:56');
 
 -- --------------------------------------------------------
 
@@ -122,9 +122,9 @@ INSERT INTO `customers` (`id`, `full_name`, `email`, `password`, `mobile`, `addr
 --
 
 CREATE TABLE `departments` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detail` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -144,13 +144,13 @@ INSERT INTO `departments` (`id`, `title`, `detail`, `created_at`, `updated_at`) 
 --
 
 CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `id` bigint UNSIGNED NOT NULL,
+  `uuid` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -160,9 +160,9 @@ CREATE TABLE `failed_jobs` (
 --
 
 CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
+  `id` int UNSIGNED NOT NULL,
+  `migration` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -196,8 +196,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -208,11 +208,11 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `rooms` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `room_type_id` int(11) NOT NULL
+  `room_type_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -220,9 +220,12 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `title`, `created_at`, `updated_at`, `room_type_id`) VALUES
-(1, 'Room 1', '2021-09-02 12:02:22', '2021-09-02 12:02:22', 1),
+(1, 'Room 2', '2021-09-02 12:02:22', '2024-12-01 00:46:02', 1),
 (2, 'Room 2', '2021-09-02 12:02:40', '2021-09-02 12:02:40', 2),
-(3, 'Room 3', '2021-09-13 12:21:02', '2021-09-13 12:21:02', 1);
+(3, 'Room 3', '2021-09-13 12:21:02', '2024-11-30 22:02:08', 22),
+(4, 'Room 4', '2024-11-30 08:17:42', '2024-11-30 08:18:24', 23),
+(5, 'Room 5', '2024-11-30 22:01:19', '2024-11-30 22:01:19', 24),
+(6, 'Room 6', '2024-11-30 22:01:34', '2024-11-30 22:01:34', 25);
 
 -- --------------------------------------------------------
 
@@ -231,10 +234,10 @@ INSERT INTO `rooms` (`id`, `title`, `created_at`, `updated_at`, `room_type_id`) 
 --
 
 CREATE TABLE `roomtypeimages` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `room_type_id` int(11) NOT NULL,
-  `img_src` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `img_alt` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `room_type_id` int NOT NULL,
+  `img_src` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img_alt` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -245,11 +248,16 @@ CREATE TABLE `roomtypeimages` (
 
 INSERT INTO `roomtypeimages` (`id`, `room_type_id`, `img_src`, `img_alt`, `created_at`, `updated_at`) VALUES
 (23, 21, 'public/imgs/vD5L0IlIU4sztSucrQIEq0FmEY8yeJQsJEjurKPn.jpg', 'Sweet Room', '2021-08-09 12:08:37', '2021-08-09 12:08:37'),
-(24, 22, 'public/imgs/EltGa8dKLBIc9DtgKF0HCRcjfI4hTogULvRtHrcv.jpg', 'Sweet Room', '2021-08-11 12:01:16', '2021-08-11 12:01:16'),
-(25, 22, 'public/imgs/vynC8j6ZBDZzRVBlZQUowT9PtSomlds0MUjEhXfQ.jpg', 'Sweet Room', '2021-08-11 12:01:16', '2021-08-11 12:01:16'),
-(27, 22, 'public/imgs/7ubteqWm1SuqvM1dVZzGK0OOMjD7FikvM17xNXA5.jpg', 'Sweet Room', '2021-08-11 12:02:00', '2021-08-11 12:02:00'),
-(28, 1, 'public/imgs/2zWoGx17udbrUk6w8M3tMA51PP6Zsn3f16DqXNm4.jpg', 'Deluxe Rooms', '2021-08-11 12:03:32', '2021-08-11 12:03:32'),
-(29, 1, 'public/imgs/jGRDKNbIhdB53FgcPSP7SXPe7J8khujVau9PX7kV.jpg', 'Deluxe Rooms', '2021-08-11 12:03:32', '2021-08-11 12:03:32');
+(31, 2, 'public/imgs/SutT7FcyCmFTJZUaj4TEcBoJgqnnPqj4vKFL82Gk.svg', 'Premium Rooms', '2024-11-30 08:12:34', '2024-11-30 08:12:34'),
+(32, 2, 'public/imgs/jxdZ860aMaRy0TgcJmGaizoSKP8NO9BsVVsfWTPX.svg', 'Premium Rooms', '2024-11-30 08:12:34', '2024-11-30 08:12:34'),
+(33, 2, 'public/imgs/rnxKCTS7XHWavJn8wE7kSk5sCrQz1MVFr1QVfB0R.svg', 'Premium Rooms', '2024-11-30 08:12:34', '2024-11-30 08:12:34'),
+(35, 1, 'public/imgs/szEtQqUkYzhU1CdePTbUVsWoRjQVQnWzCGA0espi.svg', 'Deluxe Rooms', '2024-11-30 08:13:15', '2024-11-30 08:13:15'),
+(36, 1, 'public/imgs/RvqK8jPedwXuqnMRTZltdKNvsGhnI2Q0eFfhFY5I.svg', 'Deluxe Rooms', '2024-11-30 08:13:15', '2024-11-30 08:13:15'),
+(39, 22, 'public/imgs/DKRpXXQmt6zEOwnxYyqj9rl3KzNbMY5ZdfiMQmdU.svg', 'Sweet Room', '2024-11-30 08:13:37', '2024-11-30 08:13:37'),
+(43, 24, 'public/imgs/D1pzsh1c5lt2LP3pBjhVjVJjqQyK7035JgWHqZNr.svg', 'aaacac', '2024-11-30 21:23:30', '2024-11-30 21:23:30'),
+(44, 25, 'public/imgs/19l763q5Ady4oKPyL0sf9ZkjKTfzbQU0NqFTAsn1.svg', 'aa', '2024-11-30 21:24:20', '2024-11-30 21:24:20'),
+(45, 23, 'public/imgs/3ZpTrteBjieEUdZpW6GzX5FOUsh4W64aAzk0Ehxf.svg', 'Normal Room', '2024-11-30 21:25:21', '2024-11-30 21:25:21'),
+(46, 26, 'public/imgs/2Ja7H8iGkBrDqOSwsOIgx3gHb5BJqA79KFICCirh.jpg', 'ytydr', '2024-12-01 00:43:58', '2024-12-01 00:43:58');
 
 -- --------------------------------------------------------
 
@@ -258,12 +266,12 @@ INSERT INTO `roomtypeimages` (`id`, `room_type_id`, `img_src`, `img_alt`, `creat
 --
 
 CREATE TABLE `room_types` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detail` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `price` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `price` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -271,9 +279,12 @@ CREATE TABLE `room_types` (
 --
 
 INSERT INTO `room_types` (`id`, `title`, `detail`, `created_at`, `updated_at`, `price`) VALUES
-(1, 'Deluxe Rooms', 'Deluxe Rooms', '2021-07-28 11:37:11', '2021-07-29 11:23:57', '5000'),
-(2, 'Premium Rooms', 'Premium Rooms', '2021-07-28 11:37:20', '2021-07-29 11:24:07', '10000'),
-(22, 'Sweet Room', 'Sweet Room', '2021-08-09 12:26:18', '2021-08-09 12:26:18', '200');
+(1, 'Presidential Room', 'Kamar paling eksklusif di hotel ini. Dilengkapi dengan ruang tamu, ruang makan, dapur kecil, dan kamar mandi mewah dengan jacuzzi. Sangat cocok untuk tamu VIP.\r\nFasilitas: Balkon pribadi, TV LED 55 inci, layanan pribadi, akses eksklusif ke lounge.', '2021-07-28 11:37:11', '2024-11-30 21:31:30', '3000000'),
+(2, 'Premium Rooms', 'Premium Rooms', '2021-07-28 11:37:20', '2024-11-30 21:15:43', '2000000'),
+(22, 'Sweet Room', 'Sweet Room', '2021-08-09 12:26:18', '2024-11-30 21:15:53', '1500000'),
+(23, 'Suite Room', 'Normall room', '2024-11-30 08:14:53', '2024-11-30 21:38:16', '1250000'),
+(24, 'Family Room', '-', '2024-11-30 21:23:29', '2024-11-30 21:37:52', '1000000'),
+(25, 'Single Room', '-', '2024-11-30 21:24:20', '2024-11-30 21:37:29', '500000');
 
 -- --------------------------------------------------------
 
@@ -282,11 +293,11 @@ INSERT INTO `room_types` (`id`, `title`, `detail`, `created_at`, `updated_at`, `
 --
 
 CREATE TABLE `services` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `small_desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `detail_desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `small_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detail_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -296,8 +307,14 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `title`, `small_desc`, `detail_desc`, `photo`, `created_at`, `updated_at`) VALUES
-(2, 'Service 1', 'Small Description', 'Detail Description', 'public/imgs/AueyWwvm2extl7K05UKI7s8HlDJywQTiKsSvhIfK.jpg', '2021-10-29 12:08:45', '2021-10-29 12:08:45'),
-(3, 'Service 2', 'THis is small desc', 'This is detail desc', 'public/imgs/2o4vmX6pNvBuY7W5BzNm7bdmXR6dVkTXTUYzUki3.jpg', '2021-10-30 13:21:37', '2021-10-30 13:21:37');
+(2, 'Gym', '-', '-', 'public/imgs/ytoKw7cEYEtjklOlrMWbhJQaoARdQkAUaABJUJnY.svg', '2021-10-29 12:08:45', '2024-11-30 20:35:12'),
+(4, 'Wifi', '-', '-', 'public/imgs/mlDAAdMj6ueFuJcCzz3L4iApPdQEv8RqluNbKSc9.svg', '2024-11-30 18:08:41', '2024-11-30 20:35:50'),
+(5, 'Swimming Pool', 'Swimming', 'Swimming Poolll', 'public/imgs/Am25EAL7nGVo8dFdfAzRamFfuOoKY46UEKUBFWfC.svg', '2024-11-30 18:11:29', '2024-11-30 20:14:09'),
+(6, 'Parking Space', '-', '-', 'public/imgs/awSyiR8hjkPExBkh25BOXiA59kuNYjyJuFJeaSlf.svg', '2024-11-30 18:12:25', '2024-11-30 20:37:16'),
+(7, 'Game Center', '-', '-', 'public/imgs/vWztMnOwK00xYtpX9WoQMkjAvxOglin1gVAaNemC.svg', '2024-11-30 20:19:53', '2024-11-30 20:37:45'),
+(8, '24/7 Light', '-', '-', 'public/imgs/QZD33g0OQ2ZtZCgWJ3Vqvu1ko9tPjw194oyD7hYI.svg', '2024-11-30 20:20:13', '2024-11-30 20:38:16'),
+(9, 'Laundry', '-', '-', 'public/imgs/Ls6vZPEuoFN9FJYumSI3E1gsTtLWEleeJulCqADp.svg', '2024-11-30 20:20:30', '2024-11-30 20:38:53'),
+(10, 'Breakfast', '-', '-', 'public/imgs/5FKoWea39LWPkssxTOFtKOg0e16kk6uI9SzTpNYN.svg', '2024-11-30 20:21:50', '2024-11-30 20:39:52');
 
 -- --------------------------------------------------------
 
@@ -306,13 +323,13 @@ INSERT INTO `services` (`id`, `title`, `small_desc`, `detail_desc`, `photo`, `cr
 --
 
 CREATE TABLE `staff` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `full_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `department_id` int(11) NOT NULL,
-  `photo` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bio` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `salary_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `salary_amt` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `full_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `department_id` int NOT NULL,
+  `photo` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bio` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `salary_type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `salary_amt` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -331,10 +348,10 @@ INSERT INTO `staff` (`id`, `full_name`, `department_id`, `photo`, `bio`, `salary
 --
 
 CREATE TABLE `staff_payments` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `staff_id` int(11) NOT NULL,
-  `amount` int(11) NOT NULL,
-  `payment_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `staff_id` int NOT NULL,
+  `amount` int NOT NULL,
+  `payment_date` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -346,9 +363,9 @@ CREATE TABLE `staff_payments` (
 --
 
 CREATE TABLE `testimonials` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `testi_cont` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `customer_id` int NOT NULL,
+  `testi_cont` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -358,7 +375,11 @@ CREATE TABLE `testimonials` (
 --
 
 INSERT INTO `testimonials` (`id`, `customer_id`, `testi_cont`, `created_at`, `updated_at`) VALUES
-(1, 4, 'adfasdfsdfsdfsdf', '2021-10-31 03:09:57', '2021-10-31 03:09:57');
+(4, 6, '\"Layanan di hotel ini luar biasa! Kamarnya sangat nyaman, bersih, dan fasilitasnya lengkap. Stafnya ramah, membuat saya merasa seperti di rumah sendiri. Saya pasti akan kembali lagi!\"', '2024-11-30 21:26:51', '2024-11-30 21:26:51'),
+(5, 6, '\"Hotel ini memberikan pengalaman menginap yang luar biasa. Kolam renangnya bersih, makanannya lezat, dan koneksi WiFi sangat cepat. Sangat direkomendasikan untuk semua traveler!\"', '2024-11-30 21:27:26', '2024-11-30 21:27:26'),
+(6, 6, '\"Saya sangat terkesan dengan kebersihan dan kenyamanan kamar. Gym dan fasilitas lainnya sangat memadai. Harga yang ditawarkan sangat sebanding dengan kualitasnya.\"', '2024-11-30 21:27:37', '2024-11-30 21:27:37'),
+(7, 6, '\"Pelayanan di sini benar-benar luar biasa! Lokasinya strategis, sarapannya enak, dan stafnya selalu siap membantu. Terima kasih atas pengalaman yang menyenangkan!\"', '2024-11-30 21:27:45', '2024-11-30 21:27:45'),
+(8, 6, '\"Hotel ini sangat cocok untuk liburan bersama keluarga. Anak-anak saya sangat menikmati game center dan kolam renang. Kami pasti akan kembali lagi ke sini!\"', '2024-11-30 21:27:53', '2024-11-30 21:27:53');
 
 -- --------------------------------------------------------
 
@@ -367,12 +388,12 @@ INSERT INTO `testimonials` (`id`, `customer_id`, `testi_cont`, `created_at`, `up
 --
 
 CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -487,91 +508,91 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `roomtypeimages`
 --
 ALTER TABLE `roomtypeimages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `room_types`
 --
 ALTER TABLE `room_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `staff_payments`
 --
 ALTER TABLE `staff_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
