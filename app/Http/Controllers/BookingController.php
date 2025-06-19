@@ -64,7 +64,7 @@ class BookingController extends Controller
                 'ref'=>$request->ref
             ];
             session($sessionData);
-            \Stripe\Stripe::setApiKey('sk_test_51JKcB7SFjUWoS3CIIaPlxPSREpJYoyPsn5KIhj2CBCM9z23dRUreOUwFq6eXmRYmgXNfxSozplocikiAFe3aX7sK008OH0sqy6');
+            \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
             $session = \Stripe\Checkout\Session::create([
                 'payment_method_types' => ['card'],
                 'line_items' => [[
@@ -167,7 +167,7 @@ class BookingController extends Controller
     }
 
     function booking_payment_success(Request $request){
-        \Stripe\Stripe::setApiKey('sk_test_51JKcB7SFjUWoS3CIIaPlxPSREpJYoyPsn5KIhj2CBCM9z23dRUreOUwFq6eXmRYmgXNfxSozplocikiAFe3aX7sK008OH0sqy6');
+        \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
         $session = \Stripe\Checkout\Session::retrieve($request->get('session_id'));
         $customer = \Stripe\Customer::retrieve($session->customer);
         if($session->payment_status=='paid'){

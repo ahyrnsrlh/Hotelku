@@ -7,23 +7,34 @@
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
 
-*Sistem manajemen hotel modern dengan fitur lengkap untuk mengelola operasional hotel Anda*
+_Sistem manajemen hotel modern dengan fitur lengkap untuk mengelola operasional hotel Anda_
 
 </div>
 
 ---
 
+## ⚠️ Keamanan & Penting
+
+> **🔒 PERHATIAN KEAMANAN:**
+>
+> -   File `.env` mengandung informasi sensitif seperti database credentials dan API keys
+> -   **JANGAN** commit file `.env` ke version control
+> -   Ganti semua default passwords sebelum digunakan di production
+> -   Stripe API keys telah dipindahkan ke environment variables untuk keamanan
+
+---
+
 ## 📋 Daftar Isi
 
-- [Tentang Proyek](#-tentang-proyek)
-- [Fitur Utama](#-fitur-utama)
-- [Teknologi](#%EF%B8%8F-teknologi)
-- [Instalasi](#-instalasi)
-- [Penggunaan](#-penggunaan)
-- [Struktur Database](#-struktur-database)
-- [Screenshot](#-screenshot)
-- [Kontribusi](#-kontribusi)
-- [Lisensi](#-lisensi)
+-   [Tentang Proyek](#-tentang-proyek)
+-   [Fitur Utama](#-fitur-utama)
+-   [Teknologi](#%EF%B8%8F-teknologi)
+-   [Instalasi](#-instalasi)
+-   [Penggunaan](#-penggunaan)
+-   [Struktur Database](#-struktur-database)
+-   [Screenshot](#-screenshot)
+-   [Kontribusi](#-kontribusi)
+-   [Lisensi](#-lisensi)
 
 ---
 
@@ -33,136 +44,163 @@
 
 ### 🌟 Mengapa HotelKu?
 
-- **User-Friendly Interface** - Antarmuka yang intuitif dan mudah digunakan
-- **Responsive Design** - Dapat diakses dari desktop, tablet, dan mobile
-- **Secure & Reliable** - Keamanan data terjamin dengan autentikasi Laravel
-- **Modular Architecture** - Kode yang terstruktur dan mudah dikembangkan
+-   **User-Friendly Interface** - Antarmuka yang intuitif dan mudah digunakan
+-   **Responsive Design** - Dapat diakses dari desktop, tablet, dan mobile
+-   **Secure & Reliable** - Keamanan data terjamin dengan autentikasi Laravel
+-   **Modular Architecture** - Kode yang terstruktur dan mudah dikembangkan
 
 ---
 
 ## ✨ Fitur Utama
 
 ### 🏠 **Frontend (Customer)**
-- 🎠 **Banner Slider** - Tampilan galeri gambar hotel yang menarik
-- 🏠 **Room Gallery** - Galeri foto kamar dengan lightbox
-- 🛎️ **Service Showcase** - Tampilan fasilitas dan layanan hotel
-- 📝 **Online Booking** - Sistem reservasi online untuk customer
-- 💬 **Testimonial** - Ulasan dan testimoni dari tamu
-- 📞 **Contact Page** - Halaman kontak dan informasi hotel
+
+-   🎠 **Banner Slider** - Tampilan galeri gambar hotel yang menarik
+-   🏠 **Room Gallery** - Galeri foto kamar dengan lightbox
+-   🛎️ **Service Showcase** - Tampilan fasilitas dan layanan hotel
+-   📝 **Online Booking** - Sistem reservasi online untuk customer
+-   💬 **Testimonial** - Ulasan dan testimoni dari tamu
+-   📞 **Contact Page** - Halaman kontak dan informasi hotel
 
 ### 👨‍💼 **Backend (Admin)**
-- 📊 **Dashboard Analytics** - Overview statistik booking dan pendapatan
-- 🏨 **Room Management** - Manajemen tipe kamar dan ketersediaan
-- 📅 **Booking Management** - Kelola reservasi dan status booking
-- 👥 **Customer Management** - Database customer dan riwayat booking
-- 👨‍💻 **Staff Management** - Manajemen karyawan dan gaji
-- 🎯 **Service Management** - Kelola fasilitas dan layanan hotel
-- 🖼️ **Banner Management** - Upload dan kelola banner homepage
-- 💰 **Payment Tracking** - Tracking pembayaran staff dan booking
+
+-   📊 **Dashboard Analytics** - Overview statistik booking dan pendapatan
+-   🏨 **Room Management** - Manajemen tipe kamar dan ketersediaan
+-   📅 **Booking Management** - Kelola reservasi dan status booking
+-   👥 **Customer Management** - Database customer dan riwayat booking
+-   👨‍💻 **Staff Management** - Manajemen karyawan dan gaji
+-   🎯 **Service Management** - Kelola fasilitas dan layanan hotel
+-   🖼️ **Banner Management** - Upload dan kelola banner homepage
+-   💰 **Payment Tracking** - Tracking pembayaran staff dan booking
 
 ---
 
 ## ⚙️ Teknologi
 
-| Kategori | Teknologi |
-|----------|-----------|
-| **Backend** | Laravel 8.x, PHP 7.4+ |
-| **Frontend** | Bootstrap 5, jQuery, Chart.js |
-| **Database** | MySQL 5.7+ |
-| **Storage** | Laravel Storage (File Upload) |
-| **Authentication** | Laravel Auth |
-| **UI Components** | SB Admin 2 Template |
+| Kategori           | Teknologi                     |
+| ------------------ | ----------------------------- |
+| **Backend**        | Laravel 8.x, PHP 7.4+         |
+| **Frontend**       | Bootstrap 5, jQuery, Chart.js |
+| **Database**       | MySQL 5.7+                    |
+| **Storage**        | Laravel Storage (File Upload) |
+| **Authentication** | Laravel Auth                  |
+| **UI Components**  | SB Admin 2 Template           |
 
 ---
 
 ## 🚀 Instalasi
 
 ### Prasyarat
-- PHP >= 7.4
-- Composer
-- MySQL/MariaDB
-- Node.js & NPM (opsional)
-- Web Server (Apache/Nginx)
+
+-   PHP >= 7.4
+-   Composer
+-   MySQL/MariaDB
+-   Node.js & NPM (opsional)
+-   Web Server (Apache/Nginx)
 
 ### Langkah Instalasi
 
 1. **Clone Repository**
-   ```bash
-   git clone https://github.com/username/hotelku-sistem-manajemen-hotel.git
-   cd hotelku-sistem-manajemen-hotel
-   ```
+
+    ```bash
+    git clone https://github.com/username/hotelku-sistem-manajemen-hotel.git
+    cd hotelku-sistem-manajemen-hotel
+    ```
 
 2. **Install Dependencies**
-   ```bash
-   composer install
-   ```
+
+    ```bash
+    composer install
+    ```
 
 3. **Environment Setup**
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
+
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
 
 4. **Database Configuration**
-   ```env
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=hotelku_db
-   DB_USERNAME=root
-   DB_PASSWORD=
-   ```
+
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=hotelku_db
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
 
 5. **Database Migration & Seeding**
-   ```bash
-   php artisan migrate
-   php artisan db:seed
-   ```
+
+    ```bash
+    php artisan migrate
+    php artisan db:seed
+    ```
 
 6. **Storage Symlink**
-   ```bash
-   php artisan storage:link
-   ```
 
-7. **Run Development Server**
-   ```bash
-   php artisan serve
-   ```
+    ```bash
+    php artisan storage:link
+    ```
 
-8. **Akses Aplikasi**
-   - Frontend: `http://localhost:8000`
-   - Admin Panel: `http://localhost:8000/admin`
+7. **Stripe Configuration (Optional)**
+
+    Untuk mengaktifkan payment gateway Stripe:
+
+    ```bash
+    # Edit file .env dan tambahkan Stripe keys
+    STRIPE_PUBLIC_KEY=pk_test_your_stripe_public_key
+    STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key
+    ```
+
+    📝 **Catatan**: Lihat file [`docs/STRIPE_SETUP.md`](docs/STRIPE_SETUP.md) untuk panduan lengkap setup Stripe.
+
+8. **Run Development Server**
+
+    ```bash
+    php artisan serve
+    ```
+
+9. **Akses Aplikasi**
+    - Frontend: `http://localhost:8000`
+    - Admin Panel: `http://localhost:8000/admin/login`
 
 ---
 
 ## 💻 Penggunaan
 
-### 👤 Default Credentials
+### 👤 Default Admin Credentials
 
-| Role | Email | Password |
-|------|-------|----------|
-| **Admin** | admin@hotelku.com | password |
-| **Customer** | customer@hotelku.com | password |
+| Username       | Password      | Role                |
+| -------------- | ------------- | ------------------- |
+| **admin**      | admin123      | Administrator       |
+| **superadmin** | superadmin123 | Super Administrator |
+| **manager**    | manager123    | Manager             |
+
+💡 **Tips**: Gunakan command `php artisan admin:list` untuk melihat daftar admin atau `php artisan admin:create` untuk membuat admin baru.
 
 ### 🔄 Workflow Utama
 
 1. **Setup Initial Data**
-   - Login sebagai admin
-   - Upload banner untuk homepage
-   - Tambahkan tipe kamar dan foto
-   - Setup fasilitas/layanan hotel
+
+    - Login sebagai admin
+    - Upload banner untuk homepage
+    - Tambahkan tipe kamar dan foto
+    - Setup fasilitas/layanan hotel
 
 2. **Customer Booking**
-   - Customer browse kamar di homepage
-   - Pilih tanggal dan tipe kamar
-   - Isi data booking
-   - Konfirmasi reservasi
+
+    - Customer browse kamar di homepage
+    - Pilih tanggal dan tipe kamar
+    - Isi data booking
+    - Konfirmasi reservasi
 
 3. **Admin Management**
-   - Monitor booking di dashboard
-   - Kelola ketersediaan kamar
-   - Update status booking
-   - Generate laporan
+    - Monitor booking di dashboard
+    - Kelola ketersediaan kamar
+    - Update status booking
+    - Generate laporan
 
 ---
 
@@ -184,53 +222,59 @@
 ```
 
 ### Relasi Database
-- `bookings` → `customers` (one-to-many)
-- `room_types` → `rooms` (one-to-many)
-- `room_types` → `roomtypeimages` (one-to-many)
-- `bookings` → `booked_rooms` (one-to-many)
+
+-   `bookings` → `customers` (one-to-many)
+-   `room_types` → `rooms` (one-to-many)
+-   `room_types` → `roomtypeimages` (one-to-many)
+-   `bookings` → `booked_rooms` (one-to-many)
 
 ---
 
 ## 📸 Screenshot
 
 ### Frontend
+
 ![Homepage](docs/images/homepage.png)
-*Homepage dengan banner slider dan gallery kamar*
+_Homepage dengan banner slider dan gallery kamar_
 
 ![Booking Form](docs/images/booking.png)
-*Form booking online untuk customer*
+_Form booking online untuk customer_
 
 ### Backend
+
 ![Admin Dashboard](docs/images/dashboard.png)
-*Dashboard admin dengan analytics*
+_Dashboard admin dengan analytics_
 
 ![Room Management](docs/images/room-management.png)
-*Manajemen kamar dan tipe kamar*
+_Manajemen kamar dan tipe kamar_
 
 ---
 
 ## 🔧 Fitur Tambahan
 
 ### 🎨 **UI/UX Features**
-- Responsive design untuk semua device
-- Loading animations dan smooth transitions
-- Image lightbox untuk gallery
-- Toast notifications untuk feedback user
-- Modern color scheme dengan tema coklat elegant
+
+-   Responsive design untuk semua device
+-   Loading animations dan smooth transitions
+-   Image lightbox untuk gallery
+-   Toast notifications untuk feedback user
+-   Modern color scheme dengan tema coklat elegant
 
 ### 🛡️ **Security Features**
-- CSRF protection pada semua form
-- Input validation dan sanitization
-- File upload restrictions
-- Session management
-- Password hashing dengan bcrypt
+
+-   CSRF protection pada semua form
+-   Input validation dan sanitization
+-   File upload restrictions
+-   Session management
+-   Password hashing dengan bcrypt
 
 ### 📊 **Analytics & Reporting**
-- Dashboard dengan Chart.js visualization
-- Booking statistics per bulan
-- Revenue tracking
-- Room occupancy rate
-- Customer analytics
+
+-   Dashboard dengan Chart.js visualization
+-   Booking statistics per bulan
+-   Revenue tracking
+-   Room occupancy rate
+-   Customer analytics
 
 ---
 
@@ -245,10 +289,11 @@ Kami menerima kontribusi dari developer lain! Berikut cara berkontribusi:
 5. Buat Pull Request
 
 ### 📝 Code Style
-- Ikuti PSR-12 coding standard
-- Gunakan nama variabel yang deskriptif
-- Tambahkan komentar untuk logic yang kompleks
-- Write tests untuk fitur baru
+
+-   Ikuti PSR-12 coding standard
+-   Gunakan nama variabel yang deskriptif
+-   Tambahkan komentar untuk logic yang kompleks
+-   Write tests untuk fitur baru
 
 ---
 
@@ -267,36 +312,73 @@ Jika Anda menemukan bug atau ingin mengusulkan fitur baru:
 Aplikasi ini menyediakan REST API untuk integrasi dengan sistem eksternal:
 
 ### Endpoints Utama
-- `GET /api/rooms` - Daftar kamar tersedia
-- `POST /api/bookings` - Buat booking baru
-- `GET /api/bookings/{id}` - Detail booking
-- `PUT /api/bookings/{id}` - Update status booking
 
-*Dokumentasi API lengkap tersedia di `/api/documentation`*
+-   `GET /api/rooms` - Daftar kamar tersedia
+-   `POST /api/bookings` - Buat booking baru
+-   `GET /api/bookings/{id}` - Detail booking
+-   `PUT /api/bookings/{id}` - Update status booking
+
+_Dokumentasi API lengkap tersedia di `/api/documentation`_
 
 ---
 
 ## 🚧 Roadmap
 
 ### Version 2.0 (Coming Soon)
-- [ ] Mobile app dengan React Native
-- [ ] Payment gateway integration
-- [ ] Email notifications
-- [ ] Multi-language support
-- [ ] Advanced reporting dashboard
-- [ ] Room cleaning schedule
-- [ ] Inventory management
+
+-   [ ] Mobile app dengan React Native
+-   [ ] Payment gateway integration
+-   [ ] Email notifications
+-   [ ] Multi-language support
+-   [ ] Advanced reporting dashboard
+-   [ ] Room cleaning schedule
+-   [ ] Inventory management
 
 ### Version 2.1
-- [ ] Hotel chain management
-- [ ] Customer loyalty program
-- [ ] Advanced analytics with AI
-- [ ] WhatsApp integration
-- [ ] Calendar synchronization
+
+-   [ ] Hotel chain management
+-   [ ] Customer loyalty program
+-   [ ] Advanced analytics with AI
+-   [ ] WhatsApp integration
+-   [ ] Calendar synchronization
 
 ---
 
-## 📄 Lisensi
+## � Keamanan & Best Practices
+
+### File Sensitif
+
+-   **`.env`** - Berisi database credentials, API keys, dan konfigurasi sensitif
+-   **Stripe Keys** - Konfigurasi payment gateway yang aman
+-   **Session Data** - Data login admin dan customer
+
+### Rekomendasi Production
+
+1. **Ganti semua default passwords**
+2. **Setup HTTPS dengan SSL certificate**
+3. **Configure proper file permissions**
+4. **Setup backup database reguler**
+5. **Monitor logs untuk aktivitas mencurigakan**
+6. **Update dependencies secara berkala**
+
+### Environment Variables
+
+```env
+# Database (Ganti dengan production DB)
+DB_CONNECTION=mysql
+DB_HOST=your-db-host
+DB_DATABASE=your-db-name
+DB_USERNAME=your-db-user
+DB_PASSWORD=strong-password
+
+# Stripe (Gunakan Live keys untuk production)
+STRIPE_PUBLIC_KEY=pk_live_your_live_public_key
+STRIPE_SECRET_KEY=sk_live_your_live_secret_key
+```
+
+---
+
+## �📄 Lisensi
 
 Proyek ini dilisensikan di bawah [MIT License](LICENSE) - lihat file LICENSE untuk detail lengkap.
 
@@ -304,10 +386,10 @@ Proyek ini dilisensikan di bawah [MIT License](LICENSE) - lihat file LICENSE unt
 
 ## 📧 Kontak
 
-- **Developer**: HotelKu Development Team
-- **Email**: dev@hotelku.com
-- **GitHub**: [@hotelku-team](https://github.com/hotelku-team)
-- **Website**: [https://hotelku.com](https://hotelku.com)
+-   **Developer**: HotelKu Development Team
+-   **Email**: dev@hotelku.com
+-   **GitHub**: [@hotelku-team](https://github.com/hotelku-team)
+-   **Website**: [https://hotelku.com](https://hotelku.com)
 
 ---
 
@@ -315,7 +397,7 @@ Proyek ini dilisensikan di bawah [MIT License](LICENSE) - lihat file LICENSE unt
 
 **⭐ Jika proyek ini membantu Anda, silakan berikan star!**
 
-*Made with ❤️ for Indonesian Hotel Industry*
+_Made with ❤️ for Indonesian Hotel Industry_
 
 ---
 
