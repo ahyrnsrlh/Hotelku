@@ -11,11 +11,11 @@
     <title>Login - Modern Design</title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{asset('public')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{asset('public')}}/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
     <style>
         body {
@@ -155,14 +155,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('public')}}/vendor/jquery/jquery.min.js"></script>
-    <script src="{{asset('public')}}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{asset('public')}}/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{asset('public')}}/js/sb-admin-2.min.js"></script>
+    <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 
 </body>
 

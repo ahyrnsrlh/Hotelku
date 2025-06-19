@@ -39,7 +39,7 @@
                                                         <input type="file" multiple name="imgs[]" /> 
                                                         @foreach($data->roomtypeimgs as $img)
                                                         <td class="imgcol{{$img->id}}">
-                                                            <img width="150" src="{{asset('storage/app/'.$img->img_src)}}" />
+                                                            <img width="150" src="{{asset($img->img_src)}}" />
 <p class="mt-2">
     <button type="button" onclick="return confirm('Are you sure you want to delete this image??')" class="btn btn-danger btn-sm delete-image" data-image-id="{{$img->id}}"><i class="fa fa-trash"></i></button>
 </p>

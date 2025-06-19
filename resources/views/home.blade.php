@@ -1,11 +1,9 @@
 @extends('frontlayout')
 @section('content')
 <!-- Slider Section Start -->
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    @foreach($banners as $index => $banner)
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">  <div class="carousel-inner">    @foreach($banners as $index => $banner)
     <div class="carousel-item @if($index==0) active @endif">
-      <img src="{{asset('storage/app/'.$banner->banner_src)}}" class="d-block w-100" alt="{{$banner->alt_text}}">
+      <img src="{{asset($banner->banner_src)}}" class="d-block w-100" alt="{{$banner->alt_text}}">
     </div>
     @endforeach
   </div>
@@ -27,10 +25,8 @@
   
   <div class="row g-4">
     @foreach($services as $service)
-    <div class="col-lg-3 col-md-4 col-sm-6">
-      <div class="facility-card text-center p-4 rounded shadow-sm position-relative">
-        <div class="icon-wrapper d-flex align-items-center justify-content-center mx-auto mb-3">
-          <img src="{{asset('storage/app/'.$service->photo)}}" alt="{{$service->title}}" class="icon-img">
+    <div class="col-lg-3 col-md-4 col-sm-6">      <div class="facility-card text-center p-4 rounded shadow-sm position-relative">        <div class="icon-wrapper d-flex align-items-center justify-content-center mx-auto mb-3">
+          <img src="{{asset($service->photo)}}" alt="{{$service->title}}" class="icon-img">
         </div>
         <h5 class="fw-semibold text-brown">{{$service->title}}</h5>
       </div>
@@ -83,11 +79,10 @@
         <div class="room-header bg-brown text-white p-3">
           <h5>{{$rtype->title}}</h5>
         </div>
-        <div class="room-body">
-          <div class="gallery-images d-flex flex-wrap mb-3">
+        <div class="room-body">          <div class="gallery-images d-flex flex-wrap mb-3">
             @foreach($rtype->roomtypeimgs as $index => $img)
-            <a href="{{asset('storage/app/'.$img->img_src)}}" data-lightbox="rgallery{{$rtype->id}}" class="m-1">
-              <img class="img-fluid @if($index > 0) hide @endif rounded" src="{{asset('storage/app/'.$img->img_src)}}" alt="Gallery image">
+            <a href="{{asset($img->img_src)}}" data-lightbox="rgallery{{$rtype->id}}" class="m-1">
+              <img class="img-fluid @if($index > 0) hide @endif rounded" src="{{asset($img->img_src)}}" alt="Gallery image">
             </a>
             @endforeach
           </div>

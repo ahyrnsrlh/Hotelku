@@ -144,17 +144,23 @@
                 <!-- /.container-fluid -->
 
 <!-- Page level plugins -->
-<script src="{{asset('public')}}/vendor/chart.js/Chart.min.js"></script>
+<script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
 
-<script type="text/javascript">
-    var _labels={!! json_encode($labels) !!};
-    var _data={!! json_encode($data) !!};
+{{-- Hidden data containers for chart data --}}
+<div id="chart-labels" style="display:none;">{{ json_encode($labels ?? []) }}</div>
+<div id="chart-data" style="display:none;">{{ json_encode($data ?? []) }}</div>
+<div id="chart-plabels" style="display:none;">{{ json_encode($plabels ?? []) }}</div>
+<div id="chart-pdata" style="display:none;">{{ json_encode($pdata ?? []) }}</div>
 
-    var _plabels={!! json_encode($plabels) !!};
-    var _pdata={!! json_encode($pdata) !!};
+<script>
+    // Read chart data from hidden elements
+    var _labels = JSON.parse(document.getElementById('chart-labels').textContent || '[]');
+    var _data = JSON.parse(document.getElementById('chart-data').textContent || '[]');
+    var _plabels = JSON.parse(document.getElementById('chart-plabels').textContent || '[]');
+    var _pdata = JSON.parse(document.getElementById('chart-pdata').textContent || '[]');
 </script>
 <!-- Page level custom scripts -->
-<script src="{{asset('public')}}/js/demo/chart-area-demo.js"></script>
-<script src="{{asset('public')}}/js/demo/chart-pie-demo.js"></script>
+<script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
+<script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
 
 @endsection
