@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\Booking;
 use App\Models\Testimonial;
-use Cookie;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cookie;
 
 class AdminController extends Controller
 {
@@ -21,19 +22,23 @@ class AdminController extends Controller
             'username'=>'required',
             'password'=>'required',
         ]);
-        $admin=Admin::where(['username'=>$request->username,'password'=>sha1($request->password)])->count();
-        if($admin>0){
-            $adminData=Admin::where(['username'=>$request->username,'password'=>sha1($request->password)])->get();
-            session(['adminData'=>$adminData]);
+        
+        // Find admin by username
+        $admin = Admin::where('username', $request->username)->first();
+        
+        if ($admin && Hash::check($request->password, $admin->password)) {
+            // Login successful
+            session(['adminData' => [$admin]]);
 
             if($request->has('rememberme')){
-                Cookie::queue('adminuser',$request->username,1440);
-                Cookie::queue('adminpwd',$request->password,1440);
+                Cookie::queue('adminuser', $request->username, 1440);
+                Cookie::queue('adminpwd', $request->password, 1440);
             }
 
-            return redirect('admin');
-        }else{
-            return redirect('admin/login')->with('msg','Invalid username/Password!!');
+            return redirect('admin')->with('success', 'Login successful!');
+        } else {
+            // Login failed
+            return redirect('admin/login')->with('msg', 'Invalid username/Password!!');
         }
     }
     // Logout
