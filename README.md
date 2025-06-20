@@ -381,30 +381,3 @@ STRIPE_SECRET_KEY=sk_live_your_live_secret_key
 ## �📄 Lisensi
 
 Proyek ini dilisensikan di bawah [MIT License](LICENSE) - lihat file LICENSE untuk detail lengkap.
-
----
-
-## 📧 Kontak
-
--   **Developer**: HotelKu Development Team
--   **Email**: dev@hotelku.com
--   **GitHub**: [@hotelku-team](https://github.com/hotelku-team)
--   **Website**: [https://hotelku.com](https://hotelku.com)
-
----
-
-<div align="center">
-
-**⭐ Jika proyek ini membantu Anda, silakan berikan star!**
-
-_Made with ❤️ for Indonesian Hotel Industry_
-
----
-
-### 🏆 Awards & Recognition
-
-![GitHub stars](https://img.shields.io/github/stars/username/hotelku?style=social)
-![GitHub forks](https://img.shields.io/github/forks/username/hotelku?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/username/hotelku?style=social)
-
-</div>
