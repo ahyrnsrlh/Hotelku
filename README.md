@@ -13,17 +13,6 @@ _Sistem manajemen hotel modern dengan fitur lengkap untuk mengelola operasional 
 
 ---
 
-## ⚠️ Keamanan & Penting
-
-> **🔒 PERHATIAN KEAMANAN:**
->
-> -   File `.env` mengandung informasi sensitif seperti database credentials dan API keys
-> -   **JANGAN** commit file `.env` ke version control
-> -   Ganti semua default passwords sebelum digunakan di production
-> -   Stripe API keys telah dipindahkan ke environment variables untuk keamanan
-
----
-
 ## 📋 Daftar Isi
 
 -   [Tentang Proyek](#-tentang-proyek)
